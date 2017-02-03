@@ -6,7 +6,7 @@ To run this script, you need to have rclone and unionfs-fuse already installed a
 Place this script in your target directory and set:<br>
 ```chmod a+x /path/to/script/syncunionfstorclone```
 
-Change these parameters for you needs:
+Change these parameters for you needs:<br>
 * UNIONFSRWPATH (your unionfs-fuse read/write directory)
 * RCLONEDEST (your rclone Destination
 * MINAGE (files and folder older this value will be deleted or moved on/to your rclone destionation)
