@@ -67,7 +67,7 @@ done < <(find $UNIONFSMETAPATH -type f -mmin +$MINAGE -name *$UNIONFSMETAHIDDEN 
 # MOVE FILES FROM UNIONFS RW DIRECTORY TO RCLONE DESTINATION
 if [ -n "$(find $UNIONFSRWPATH -type f ! -path "$UNIONFSMETAPATH*" -mmin +$MINAGE)" ]; then
   echo "$(date "+%Y/%m/%d %T") Upload to $RCLONEREMOTENICE started" | tee -a $LOGFILE
-  rclone move $UNIONFSRWPATH/ $RCLONEREMOTE$RCLONEREMOTEPATH/ --checksum --no-traverse --transfers=30 --checkers=30 --delete-after --min-age "$MINAGE"m --exclude "$UNIONFSMETADIR**" 2>&1 | tee -a $LOGFILE
+  rclone move $UNIONFSRWPATH/ $RCLONEREMOTE$RCLONEREMOTEPATH/ --verbose --checksum --no-traverse --transfers=30 --checkers=30 --delete-after --min-age "$MINAGE"m --exclude "$UNIONFSMETADIR**" 2>&1 | tee -a $LOGFILE
   echo "$(date "+%Y/%m/%d %T") Upload to $RCLONEREMOTENICE finished" | tee -a $LOGFILE
 fi
 
